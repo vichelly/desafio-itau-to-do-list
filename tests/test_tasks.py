@@ -68,10 +68,12 @@ def test_delete_task():
     assert response.status_code == 404
 
 def test_update_status():
+    # Cria tarefa pendente
     res = client.post("/tasks/", json={"title": "ToUpdateStatus", "description": "desc", "status": "pendente"})
     task_id = res.json()["id"]
 
-    response = client.patch(f"/tasks/{task_id}/status", json={"status": "concluido"})
+    # Faz PATCH na nova rota sem body
+    response = client.patch(f"/tasks/{task_id}/mark-as-done")
     assert response.status_code == 200
     data = response.json()
     assert data["status"] == "concluido"

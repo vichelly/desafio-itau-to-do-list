@@ -36,13 +36,13 @@ def delete(task_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Task not found")
     return {"ok": True}
 
-@router.patch("/{task_id}/status", response_model=schemas.TaskOut)
-def update_status(
+@router.patch("/{task_id}/mark-as-done", response_model=schemas.TaskOut)
+def mark_task_as_done(
     task_id: int,
-    status_update: schemas.TaskUpdateStatus = Body(...),
     db: Session = Depends(get_db)
 ):
-    task = crud.update_task_status(db, task_id, status_update.status)
+    task = crud.update_task_status(db, task_id, "concluido")
     if not task:
         raise HTTPException(status_code=404, detail="Task not found")
     return task
+

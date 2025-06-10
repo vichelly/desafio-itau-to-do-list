@@ -5,8 +5,8 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_USER: postgres #usuário local
-      POSTGRES_PASSWORD: 1605 #sua senha local
+      POSTGRES_USER: ${DB_USER} #usuário local
+      POSTGRES_PASSWORD: ${DB_PASSWORD} #sua senha local
       POSTGRES_DB: todo_db
     ports:
       - "5432:5432"
