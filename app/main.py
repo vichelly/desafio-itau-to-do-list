@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import os
 from dotenv import load_dotenv
 from fastapi import FastAPI
@@ -16,7 +15,7 @@ app = FastAPI(
 )
 
 app.include_router(tasks.router)
-load_dotenv()  # carrega variáveis do arquivo .env para o ambiente
+load_dotenv() 
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
