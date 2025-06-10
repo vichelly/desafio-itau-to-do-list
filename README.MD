@@ -43,3 +43,38 @@ No terminal, dentro da pasta do projeto, rode:
 ```bash
 docker-compose up -d
 ```
+
+## 5. Configurar variáveis de ambiente
+Crie um arquivo .env na raiz do projeto, com a variável:
+
+```bash
+DATABASE_URL=postgresql://postgres:1605@localhost:5432/todo_db
+```
+
+ou mude a variável como quiser, altere também no docker compose
+
+
+## 6. Rodar aplicação
+
+```bash
+uvicorn app.main:app --reload
+```
+
+## Testar API
+
+testes unitários com pytest
+```bash
+pytest tests/
+```
+
+Você pode testar os endpoints usando o Swagger UI:
+
+http://127.0.0.1:8000/docs
+
+
+## Parar banco 
+
+```bash
+docker-compose down
+```
+
