@@ -6,3 +6,6 @@ pydantic
 python-dotenv
 pytest
 httpx
+google-generativeai
+anyio
+google-api-core
