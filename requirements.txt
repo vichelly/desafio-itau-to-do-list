@@ -9,3 +9,4 @@ httpx
 google-generativeai
 anyio
 google-api-core
+typing-extensions
