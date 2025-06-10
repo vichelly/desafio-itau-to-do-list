@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from .database import Base, engine
 from .routes import tasks
+from app.database import engine, Base
+from app import models
 
 Base.metadata.create_all(bind=engine)
 
