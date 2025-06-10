@@ -6,7 +6,7 @@ Projeto simples de API REST para gerenciamento de tarefas, usando FastAPI, SQLAl
 
 ## Pré-requisitos
 
-- Python 3.10+ instalado
+- Python instalado
 - Docker instalado
 - Git (opcional, para clonar o projeto)
 
@@ -17,7 +17,7 @@ Projeto simples de API REST para gerenciamento de tarefas, usando FastAPI, SQLAl
 ### 1. Clone o repositório (opcional)
 
 ```bash
-git clone <url-do-repo>
+git clone https://github.com/vichelly/desafio-itau-to-do-list.git
 cd desafio-itau-to-do-list
 ```
 
@@ -48,7 +48,10 @@ docker-compose up -d
 Crie um arquivo .env na raiz do projeto, com a variável:
 
 ```bash
-DATABASE_URL=postgresql://postgres:1605@localhost:5432/todo_db
+DATABASE_URL=postgresql://"seu db user":"sua senha"@localhost:5432/todo_db
+GEMINI_API_KEY=chave da api gemini 
+DB_USER=seu db user
+DB_PASSWORD=sua senha 
 ```
 
 ou mude a variável como quiser, altere também no docker compose
