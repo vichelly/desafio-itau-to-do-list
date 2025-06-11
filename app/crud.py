@@ -2,11 +2,21 @@ from sqlalchemy.orm import Session
 from . import models, schemas
 
 def create_task(db: Session, task: schemas.TaskCreate):
-    db_task = models.Task(**task.model_dump())
+    # Verifica se já existe uma task com mesmo título e descrição
+    existing = db.query(models.Task).filter_by(
+        title=task.title,
+        description=task.description
+    ).first()
+
+    if existing:
+        return existing  # ou raise HTTPException(status_code=400, detail="Tarefa duplicada")
+
+    db_task = models.Task(**task.model_dump())  # para Pydantic v2
     db.add(db_task)
     db.commit()
     db.refresh(db_task)
     return db_task
+
 
 def get_tasks(db: Session, skip: int = 0, limit: int = 10):
     return db.query(models.Task).order_by(models.Task.id).offset(skip).limit(limit).all()
