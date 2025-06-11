@@ -25,10 +25,19 @@ cd desafio-itau-to-do-list
 
 No Windows PowerShell:
 
+para criar a venv
+```bash
+py -m venv venv
+```
+
+ativar o venv
 ```bash
 .\venv\Scripts\Activate.ps1
 ```
-
+ou
+```bash
+source venv/bin/activate
+```
 ## 3. Instalar dependências
 
 Com o ambiente virtual ativado:
